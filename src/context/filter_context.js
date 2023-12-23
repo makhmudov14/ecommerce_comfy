@@ -57,14 +57,17 @@ useEffect(() => {
 
   }
   const updateFilters = (e) => {
+    console.log('received event', e)
     let name = e.target.name
     let value = e.target.value
+    console.log('received event name', name)
+    
     if(name === 'category'){
       value = e.target.textContent
     }
     if(name === 'color'){
-      value = e.target.dataset.colors
-
+      value = e.target.dataset.color
+      console.log('received event value', value)
     }
     if(name === 'price'){
       value = Number(value)

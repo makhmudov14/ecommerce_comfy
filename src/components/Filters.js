@@ -14,7 +14,7 @@ const Filters = () => {
 } = useFilterContext()
 const categories = getUniqueValues(all_products, 'category')
 const companies = getUniqueValues(all_products, 'company')
-const colors = getUniqueValues(all_products, 'colors')
+const colors = [...new Set(getUniqueValues(all_products, 'colors').flat())]
 
   return <Wrapper>
     <div className='content'>
@@ -50,7 +50,7 @@ const colors = getUniqueValues(all_products, 'colors')
           <div className='colors'>
 
             {colors.map((c, index) => {
-              console.log(colors)
+              console.log("colors",colors);
               if( c === 'all'){
                 return (
                   <button key={index} name='color' onClick={updateFilters} data-color='all'
